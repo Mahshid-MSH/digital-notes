@@ -18,13 +18,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4          # ✅ Fixed: v6 → v4
+      - uses: actions/checkout@v4          
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-node@v4         # ✅ Fixed: v6 → v4
+      - uses: actions/setup-node@v4         
         with:
-          node-version: 22                  # ✅ Stable LTS, not 24
+          node-version: 22                  
 
       # Caches temporarily disabled to rule out corruption.
       # Re-enable later with a fresh key (e.g. add -v2) when stable.
@@ -45,12 +45,12 @@ jobs:
       #       ${{ runner.os }}-plugins-
 
       - name: Install Dependencies
-        run: npm ci --loglevel verbose      # ✅ Verbose logging + memory increase
+        run: npm ci --loglevel verbose      
         env:
           NODE_OPTIONS: --max-old-space-size=4096
 
-      - name: Install Quartz plugins
-        run: npx quartz plugin install
+      #- name: Install Quartz plugins
+       # run: npx quartz plugin install
 
       - name: Build Quartz
         run: npx quartz build
