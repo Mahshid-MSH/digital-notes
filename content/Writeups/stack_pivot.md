@@ -72,7 +72,7 @@ This means the greatest number we can pass as the size argument is 257. However,
 
 ![alt](./assets/stack_pivot/13.png)
 
-![alt](./assets/stack_pivot/14.png|718)
+![alt](./assets/stack_pivot/14.png)
 
 ### 4. Crafting the Exploit (Stack Pivoting)
 
@@ -102,7 +102,7 @@ Next, we extract our ROP gadgets to set up the `execve` syscall (which requires 
     ![alt](./assets/stack_pivot/18.png)
 - `pop rdi ; ret` (`0x400686`)
 - 
-    ![alt](./assets/stack_pivot/19.png|1046)
+    ![alt](./assets/stack_pivot/19.png)
 
 - Write-what-where gadget: `mov qword ptr [rdi], rcx ; ret` (`0x435b9b`)
 
